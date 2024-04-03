@@ -41,6 +41,8 @@ while running:
 
     #render game here
 
+    #game tests here(colission and such)
+
 
     pygame.display.flip()
 
