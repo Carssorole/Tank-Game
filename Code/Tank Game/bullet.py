@@ -1,5 +1,4 @@
 import pygame
-import sys
 
 pygame.init()
 
@@ -25,4 +24,3 @@ while running:
     pygame.display.flip()
 
 pygame.quit()
-sys.exit()
