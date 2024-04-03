@@ -5,8 +5,21 @@ pygame.init()
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
+redScore = 0
+blueScore = 0
+
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Tank Game")
+
+font = pygame.font.Font('PressStart2P-vaV7.ttf', 38)
+
+blueText = font.render(str(blueScore), True, (0, 0, 255))
+blueTextRect = blueText.get_rect()
+blueTextRect.center = (SCREEN_WIDTH/3, SCREEN_HEIGHT/20)
+
+redText = font.render(str(redScore), True, (255, 0, 0))
+redTextRect = redText.get_rect()
+redTextRect.center = ((SCREEN_WIDTH/3 * 2), SCREEN_HEIGHT/20)
 
 clock = pygame.time.Clock()
 
@@ -63,20 +76,24 @@ while run:
     screen.blit(player1.image, (player1.rect.x, player1.rect.y))
     screen.blit(player2.image, (player2.rect.x, player2.rect.y))
 
+    pygame.draw.rect(screen, (0, 0, 0), pygame.Rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT/10))
+    screen.blit(blueText, blueTextRect)
+    screen.blit(redText, redTextRect)
+
     key = pygame.key.get_pressed()
     if key[pygame.K_w]:
         player1.moveForward(1)
         player1.update(1)
         player1.image = pygame.transform.scale(player1.image, (50, 50))
-    if key[pygame.K_s]:
+    elif key[pygame.K_s]:
         player1.moveBack(1)
         player1.update(3)
         player1.image = pygame.transform.scale(player1.image, (50, 50))
-    if key[pygame.K_a]:
+    elif key[pygame.K_a]:
         player1.moveLeft(1)
         player1.update(2)
         player1.image = pygame.transform.scale(player1.image, (50, 50))
-    if key[pygame.K_d]:
+    elif key[pygame.K_d]:
         player1.moveRight(1)
         player1.update(0)
         player1.image = pygame.transform.scale(player1.image, (50, 50))
@@ -88,15 +105,15 @@ while run:
         player2.moveForward(1)
         player2.update(1)
         player2.image = pygame.transform.scale(player2.image, (50, 50))
-    if key[pygame.K_DOWN]:
+    elif key[pygame.K_DOWN]:
         player2.moveBack(1)
         player2.update(3)
         player2.image = pygame.transform.scale(player2.image, (50, 50))
-    if key[pygame.K_RIGHT]:
+    elif key[pygame.K_RIGHT]:
         player2.moveRight(1)
         player2.update(2)
         player2.image = pygame.transform.scale(player2.image, (50, 50))
-    if key[pygame.K_LEFT]:
+    elif key[pygame.K_LEFT]:
         player2.moveLeft(1)
         player2.update(0)
         player2.image = pygame.transform.scale(player2.image, (50, 50))
