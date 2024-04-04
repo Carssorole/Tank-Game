@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44fb7612-64b3-4a0d-81bc-ab09a14946cb" name="Changes" comment="Rename">
-      <change afterPath="$PROJECT_DIR$/Code/Assets/Chip Suey.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Assets/For What.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Assets/Paper Planes.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_2_2024_10_09_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_2_2024_10_09_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Blue Tank FaceBot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Blue Tank FaceBot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Blue Tank FaceLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Blue Tank FaceLeft.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Blue Tank FaceRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Blue Tank FaceRight.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Blue Tank FaceTop.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Blue Tank FaceTop.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Tank Game/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Red Tank FaceBot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Red Tank FaceBot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Red Tank FaceLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Red Tank FaceLeft.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Red Tank FaceRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Red Tank FaceRight.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Red Tank FaceTop.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Red Tank FaceTop.png" afterDir="false" />
-    </list>
+    <list default="true" id="44fb7612-64b3-4a0d-81bc-ab09a14946cb" name="Changes" comment="ADDED&#10;- Nothing but HEAT&#10;- Game music&#10;- Assets folder&#10;- Documentation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,7 +105,21 @@
       <option name="project" value="LOCAL" />
       <updated>1712160535884</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ADDED&#10;- Nothing but HEAT&#10;- Game music&#10;- Assets folder&#10;- Documentation">
+      <created>1712209108800</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712209108800</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ADDED&#10;- Nothing but HEAT&#10;- Game music&#10;- Assets folder&#10;- Documentation">
+      <created>1712209406567</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712209406567</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,6 +135,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Rename" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename" />
+    <MESSAGE value="ADDED&#10;- Nothing but HEAT&#10;- Game music&#10;- Assets folder&#10;- Documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADDED&#10;- Nothing but HEAT&#10;- Game music&#10;- Assets folder&#10;- Documentation" />
   </component>
 </project>
