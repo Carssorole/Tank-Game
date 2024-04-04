@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="44fb7612-64b3-4a0d-81bc-ab09a14946cb" name="Changes" comment="Rename">
-      <change afterPath="$PROJECT_DIR$/Code/Tank Game/PressStart2P-vaV7.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Assets/Chip Suey.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Assets/For What.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Assets/Paper Planes.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_2_2024_10_09_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_2_2024_10_09_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Blue Tank FaceBot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Blue Tank FaceBot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Blue Tank FaceLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Blue Tank FaceLeft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Blue Tank FaceRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Blue Tank FaceRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Blue Tank FaceTop.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Blue Tank FaceTop.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Tank Game/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Tank Game/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Red Tank FaceBot.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Red Tank FaceBot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Red Tank FaceLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Red Tank FaceLeft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Red Tank FaceRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Red Tank FaceRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Red Tank FaceTop.png" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/Red Tank FaceTop.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +37,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2eY8miNX7kx9wtt3inVFXN2GMYQ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -31,12 +48,16 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Jgper/PycharmProjects/TankGame/Tank-Game/Code/Tank Game"
+    "last_opened_file_path": "C:/Users/Jgper/OneDrive/Documents/GitHub/Tank-Game/Code/Assets"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jgper\OneDrive\Documents\GitHub\Tank-Game\Code\Assets" />
       <recent name="C:\Users\Jgper\PycharmProjects\TankGame\Tank-Game\Code\Tank Game" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jgper\OneDrive\Documents\GitHub\Tank-Game\Code\Assets" />
     </key>
   </component>
   <component name="RunManager">
