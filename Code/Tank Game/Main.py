@@ -1,4 +1,5 @@
 import pygame
+import random
 
 pygame.init()
 
@@ -7,19 +8,24 @@ SCREEN_HEIGHT = 608
 
 redScore = 0
 blueScore = 0
-
+# Sets screen dimensions
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Tank Game")
-
+# Below sets arcade style font and color codes each player's score
 font = pygame.font.Font('PressStart2P-vaV7.ttf', 38)
 
-blueText = font.render(str(blueScore), True, (0, 0, 255))
+blueText = font.render(str(blueScore), True, (63, 196, 255))
 blueTextRect = blueText.get_rect()
 blueTextRect.center = (SCREEN_WIDTH/3, SCREEN_HEIGHT/20)
 
 redText = font.render(str(redScore), True, (255, 0, 0))
 redTextRect = redText.get_rect()
 redTextRect.center = ((SCREEN_WIDTH/3 * 2), SCREEN_HEIGHT/20)
+# Plays random track from musicList and loops it
+musicList = ["../Assets/Chip Suey.wav", "../Assets/Paper Planes.wav", "../Assets/For What.wav"]
+pygame.mixer.music.load(musicList[random.randint(0, len(musicList)-1)])
+pygame.mixer.music.play(-1)
+pygame.mixer.music.set_volume(0.6)
 
 clock = pygame.time.Clock()
 
@@ -35,6 +41,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
+# Update is used to change sprite images upon key inputs
     def update(self, index):
         self.index = index
 
@@ -56,18 +63,18 @@ class Player(pygame.sprite.Sprite):
         self.rect.y += pixels
 
 
-BlueTankImages = [pygame.image.load("Blue Tank FaceRight.png").convert_alpha(),
-                  pygame.image.load("Blue Tank FaceTop.png").convert_alpha(),
-                  pygame.image.load("Blue Tank FaceLeft.png").convert_alpha(),
-                  pygame.image.load("Blue Tank FaceBot.png").convert_alpha()]
+BlueTankImages = [pygame.image.load("../Assets/Blue Tank FaceRight.png").convert_alpha(),
+                  pygame.image.load("../Assets/Blue Tank FaceTop.png").convert_alpha(),
+                  pygame.image.load("../Assets/Blue Tank FaceLeft.png").convert_alpha(),
+                  pygame.image.load("../Assets/Blue Tank FaceBot.png").convert_alpha()]
 
-RedTankImages = [pygame.image.load("Red Tank FaceLeft.png").convert_alpha(),
-                 pygame.image.load("Red Tank FaceTop.png").convert_alpha(),
-                 pygame.image.load("Red Tank FaceRight.png").convert_alpha(),
-                 pygame.image.load("Red Tank FaceBot.png").convert_alpha()]
+RedTankImages = [pygame.image.load("../Assets/Red Tank FaceLeft.png").convert_alpha(),
+                 pygame.image.load("../Assets/Red Tank FaceTop.png").convert_alpha(),
+                 pygame.image.load("../Assets/Red Tank FaceRight.png").convert_alpha(),
+                 pygame.image.load("../Assets/Red Tank FaceBot.png").convert_alpha()]
 
-player1 = Player(BlueTankImages, 50, 275)
-player2 = Player(RedTankImages, 700, 275)
+player1 = Player(BlueTankImages, 50, SCREEN_HEIGHT/2)
+player2 = Player(RedTankImages, SCREEN_WIDTH - 100, SCREEN_HEIGHT/2)
 
 run = True
 while run:
