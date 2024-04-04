@@ -3,7 +3,7 @@ import pygame
 pygame.init()
 
 SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+SCREEN_HEIGHT = 608
 
 redScore = 0
 blueScore = 0
