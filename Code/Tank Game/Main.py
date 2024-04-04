@@ -73,8 +73,8 @@ RedTankImages = [pygame.image.load("../Assets/Red Tank FaceLeft.png").convert_al
                  pygame.image.load("../Assets/Red Tank FaceRight.png").convert_alpha(),
                  pygame.image.load("../Assets/Red Tank FaceBot.png").convert_alpha()]
 
-player1 = Player(BlueTankImages, 50, 275)
-player2 = Player(RedTankImages, 700, 275)
+player1 = Player(BlueTankImages, 50, SCREEN_HEIGHT/2)
+player2 = Player(RedTankImages, SCREEN_WIDTH - 100, SCREEN_HEIGHT/2)
 
 run = True
 while run:
