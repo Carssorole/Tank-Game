@@ -1,13 +1,30 @@
 import pygame
 
+class Bullet:
+    def __init__(self, x_pos, y_pos, x_vel, y_vel):
+        self.x_pos = x_pos
+        self.y_pos = y_pos
+        self.x_vel = x_vel
+        self.y_vel = y_vel
+        self.radius = 5
+        self.color = (0, 0, 0)
+
+    def move(self):
+        self.x_pos += self.x_vel
+        self.y_pos += self.y_vel
+
+    def draw(self, screen):
+        pygame.draw.circle(screen, self.color, (self.x_pos, self.y_pos), self.radius)
+
 pygame.init()
 
 width, height = 400, 400
 screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption("Black Circle")
+pygame.display.set_caption("Bullet")
 
 WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
+
+bullet = Bullet(200, 200, 3, -3)
 
 running = True
 while running:
@@ -17,10 +34,10 @@ while running:
 
     screen.fill(WHITE)
 
-    radius = 5
-    circle_center = (width // 2, height // 2)
-    pygame.draw.circle(screen, BLACK, circle_center, radius)
+    bullet.move()
+    bullet.draw(screen)
     
     pygame.display.flip()
 
 pygame.quit()
+
