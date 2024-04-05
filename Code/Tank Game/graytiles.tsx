@@ -5,6 +5,6 @@
   <properties>
    <property name="solid" type="int" value="1"/>
   </properties>
-  <image width="10" height="10" source="../../Downloads/gray_square.jpg"/>
+  <image width="10" height="10" source="gray_square.jpg"/>
  </tile>
 </tileset>
