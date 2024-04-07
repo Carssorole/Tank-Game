@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44fb7612-64b3-4a0d-81bc-ab09a14946cb" name="Changes" comment="ADDED&#10;- Nothing but HEAT&#10;- Game music&#10;- Assets folder&#10;- Documentation">
-      <change afterPath="$PROJECT_DIR$/Code/Tank Game/gray_square.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Tank-Game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Tank-Game.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_2_2024_10_09_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_2_2024_10_09_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Tank Game/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Tank Game/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Wall.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Tank Game/Wall.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graytiles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Tank Game/graytiles.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tankmap1.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Tank Game/tankmap1.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Tank Game/PressStart2P-vaV7.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/PressStart2P-vaV7.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Tank Game/bullet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Tank Game/bullet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,31 +44,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.JGPerks.executor": "Run",
-    "Python.Main.executor": "Run",
-    "Python.Wall.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Jordan/PycharmProjects/Tank-Game/Code/Tank Game"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.JGPerks.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Wall.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jgper/PycharmProjects/TankGame/Tank-Game/Code/Assets&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jgper\PycharmProjects\TankGame\Tank-Game\Code\Assets" />
       <recent name="C:\Users\Jordan\PycharmProjects\Tank-Game\Code\Tank Game" />
       <recent name="C:\Users\Jgper\OneDrive\Documents\GitHub\Tank-Game\Code\Assets" />
       <recent name="C:\Users\Jgper\PycharmProjects\TankGame\Tank-Game\Code\Tank Game" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jgper\PycharmProjects\TankGame\Tank-Game\Code\Assets" />
       <recent name="C:\Users\Jordan\PycharmProjects\Tank-Game\Code\Tank Game" />
       <recent name="C:\Users\Jgper\OneDrive\Documents\GitHub\Tank-Game\Code\Assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.JGPerks">
+  <component name="RunManager">
     <configuration name="JGPerks" type="PythonConfigurationType" factoryName="Python">
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -85,7 +93,6 @@
     </configuration>
     <configuration name="JPerks" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Tank-Game" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
