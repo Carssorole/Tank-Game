@@ -186,7 +186,7 @@ while run:
 
         # Bullet for player one
         if key[pygame.K_v]:
-
+            print("Hello")
 
         if key[pygame.K_w]:
             if Wall.can_move_to(tmxdata, player1.rect, 0, -1, SCOREBOARD_HEIGHT):
