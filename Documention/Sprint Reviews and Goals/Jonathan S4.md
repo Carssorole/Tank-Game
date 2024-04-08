@@ -5,4 +5,4 @@
 - Each score total is color coded to the color of the player to be instinctually intuitive.
 
 ## Moving Forward
-- 
+- I will be turning the scoreboard into a jumbotron with animations.
