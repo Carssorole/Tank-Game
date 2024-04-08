@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44fb7612-64b3-4a0d-81bc-ab09a14946cb" name="Changes" comment="ADDED&#10;- 8-bit fire sprite animation to scoreboard&#10;- Tank Game text on jumbo tron">
-      <change afterPath="$PROJECT_DIR$/Code/Tank Game/player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Tank Game/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Tank Game/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Tank Game/bullet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Tank Game/bullet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
