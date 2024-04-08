@@ -1,9 +1,63 @@
-# Tank-Game
-Team Scrummy Tanker, will be recreating the Atari classic, Combat.  Two tanks staged against each other in a complex battlefield.
-Two tanks fighting in a complex obstacle battlefield maze of death till the last tank standing. 
+# Tank Game
+
+Team Scrummy Tanker will be recreating the Atari classic, Combat. Two tanks staged against each other in a complex battlefield maze of death till the last tank standing.
 
 This game will be programmed in Python using the common pygame import.
 
-- package reqs
+## Package Requirements
 
 - PyGame
+
+## How to Play
+
+**Controls for Player 1 (Blue Tank):**
+- W: Move Forward
+- S: Move Backward
+- A: Rotate Left
+- D: Rotate Right
+- SPACE: Fire Weapon
+
+**Controls for Player 2 (Red Tank):**
+- UP Arrow: Move Forward
+- DOWN Arrow: Move Backward
+- LEFT Arrow: Rotate Left
+- RIGHT Arrow: Rotate Right
+
+## Objective
+
+The objective of the game is to outmaneuver your opponent and score points by eliminating them using your tank's firepower.
+
+## Features
+
+- Two-player local gameplay.
+- Tank movement and rotation controls.
+- Firing mechanism to engage opponents.
+- Scoring system displayed on the scoreboard.
+- Background music that adds to the gaming experience.
+
+## Installation
+
+1. Ensure you have Python installed on your system.
+2. Install the Pygame library using pip:
+   ```
+   pip install pygame
+   ```
+3. Clone or download the repository containing the game files.
+
+## Running the Game
+
+1. Navigate to the directory where the game files are located.
+2. Run the following command in your terminal:
+   ```
+   python tank_game.py
+   ```
+3. Enjoy playing the Tank Game!
+
+## Credits
+
+- **Font:** Press Start 2P by CodeMan38
+- **Music:** Tracks from various sources, including Chip Suey, Paper Planes, and For What.
+
+## Note
+
+This game is a simple demonstration and can be expanded with additional features such as multiple maps, different tank types, and network multiplayer support. Feel free to contribute to its development or customize it according to your preferences. Enjoy gaming!
