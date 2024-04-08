@@ -53,11 +53,3 @@ The objective of the game is to outmaneuver your opponent and score points by el
    ```
 3. Enjoy playing the Tank Game!
 
-## Credits
-
-- **Font:** Press Start 2P by CodeMan38
-- **Music:** Tracks from various sources, including Chip Suey, Paper Planes, and For What.
-
-## Note
-
-This game is a simple demonstration and can be expanded with additional features such as multiple maps, different tank types, and network multiplayer support. Feel free to contribute to its development or customize it according to your preferences. Enjoy gaming!
