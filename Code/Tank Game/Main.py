@@ -129,7 +129,8 @@ while run:
         # Below controls key bindings
         key = pygame.key.get_pressed()
 
-        if key[pygame.K_x]:
+        if key[pygame.K_v]:
+            print(player1.index)
             if player1.index == 0:
                 player1bullet = bullet.Bullet(player1.rect.x, player1.rect.y)
                 player1bullet.draw(screen)
