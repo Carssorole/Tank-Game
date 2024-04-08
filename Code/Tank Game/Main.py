@@ -150,6 +150,28 @@ while run:
 
         if key[pygame.K_SPACE]:
             player1.image = pygame.transform.rotate(player1.image, 2)
+            player2.image = pygame.transform.rotate(player2.image, 2)
+
+        # Used until player hit boxes and bullet implementation is achieved
+        if key[pygame.K_7]:
+            spawnPointX = [50, 50, 50, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100,
+                           SCREEN_WIDTH/2 - 15, SCREEN_WIDTH/2 - 15]
+            spawnPointY = [SCREEN_HEIGHT/2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT/2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT/2 + 160, SCREEN_HEIGHT/2 - 140]
+            setSpawn = random.randint(0, 7)
+            player1.rect.x = spawnPointX[setSpawn]
+            player1.rect.y = spawnPointY[setSpawn]
+
+        if key[pygame.K_8]:
+            spawnPointX = [50, 50, 50, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100,
+                           SCREEN_WIDTH/2 - 15, SCREEN_WIDTH/2 - 15]
+            spawnPointY = [SCREEN_HEIGHT/2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT/2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT/2 + 160, SCREEN_HEIGHT/2 - 140]
+            setSpawn = random.randint(0, 7)
+            player2.rect.x = spawnPointX[setSpawn]
+            player2.rect.y = spawnPointY[setSpawn]
 
         # Used until other game over logic is implemented (Press 5 to end game)
         if key[pygame.K_5]:
