@@ -15,7 +15,7 @@ This game will be programmed in Python using the common pygame import.
 - S: Move Backward
 - A: Rotate Left
 - D: Rotate Right
-- SPACE: Fire Weapon
+- SPACE: Self Immolate
 
 **Controls for Player 2 (Red Tank):**
 - UP Arrow: Move Forward
@@ -38,18 +38,22 @@ The objective of the game is to outmaneuver your opponent and score points by el
 ## Installation
 
 1. Ensure you have Python installed on your system.
-2. Install the Pygame library using pip:
+2. Install pytmx using pip as it's a dependancy:
+   ```
+   pip install pytmx
+   ```
+4. Install the Pygame library using pip:
    ```
    pip install pygame
    ```
-3. Clone or download the repository containing the game files.
+5. Clone or download the repository containing the game files.
 
 ## Running the Game
 
-1. Navigate to the directory where the game files are located.
+1. Navigate to the directory where the game files are located. (Tank-Game/Code/Tank Game)
 2. Run the following command in your terminal:
    ```
-   python tank_game.py
+   python Main.py
    ```
 3. Enjoy playing the Tank Game!
 
