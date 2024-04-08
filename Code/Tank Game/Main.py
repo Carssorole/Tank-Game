@@ -1,6 +1,7 @@
 import pygame
 import random
 from pytmx.util_pygame import load_pygame
+from player import Player
 import Wall
 import Menu
 
@@ -37,63 +38,6 @@ pygame.mixer.music.set_volume(0.6)
 
 clock = pygame.time.Clock()
 tmxdata = load_pygame('tankmap1.tmx')
-
-
-class Player(pygame.sprite.Sprite):
-    def __init__(self, images, x, y):
-        super().__init__()
-        self.elapsed = 0
-        self.sprites = images
-        self.index = 0
-        self.image = self.sprites[self.index]
-        self.image = pygame.transform.scale(self.image, (40, 40))
-        self.rect = self.image.get_rect()
-        self.rect.x = x
-        self.rect.y = y + SCOREBOARD_HEIGHT
-
-        class Bullet:
-            def __init__(self, x_pos, y_pos, x_vel, y_vel):
-                self.x_pos = x_pos
-                self.y_pos = y_pos
-                self.x_vel = x_vel
-                self.y_vel = y_vel
-                self.radius = 5
-                self.color = (0, 0, 0)
-
-            def move(self):
-                self.x_pos += self.x_vel
-                self.y_pos += self.y_vel
-
-            def draw(self, screen):
-                pygame.draw.circle(screen, self.color, (self.x_pos, self.y_pos), self.radius)
-
-    # Update is used to change sprite images upon key inputs
-    def update(self, index):
-        self.index = index
-
-        if self.index >= len(self.sprites):
-            self.index = 0
-
-        self.image = self.sprites[self.index]
-
-    def updateJumbotron(self):
-        self.elapsed = self.elapsed + 1
-        if self.elapsed > 10:
-            self.update(self.index + 1)
-            self.elapsed = 0
-            self.image = pygame.transform.rotate(self.image, 90)
-
-    def moveRight(self, pixels):
-        self.rect.x += pixels
-
-    def moveLeft(self, pixels):
-        self.rect.x -= pixels
-
-    def moveForward(self, pixels):
-        self.rect.y -= pixels
-
-    def moveBack(self, pixels):
-        self.rect.y += pixels
 
 
 BlueTankImages = [pygame.image.load("../Assets/Blue Tank FaceRight.png").convert_alpha(),
@@ -183,11 +127,6 @@ while run:
             fireSprite.rect.x = -2500
         # Below controls key bindings
         key = pygame.key.get_pressed()
-
-        # Bullet for player one
-        if key[pygame.K_v]:
-            print("Hello")
-
         if key[pygame.K_w]:
             if Wall.can_move_to(tmxdata, player1.rect, 0, -1, SCOREBOARD_HEIGHT):
                 player1.moveForward(1)
