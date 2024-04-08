@@ -51,6 +51,22 @@ class Player(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y + SCOREBOARD_HEIGHT
 
+        class Bullet:
+            def __init__(self, x_pos, y_pos, x_vel, y_vel):
+                self.x_pos = x_pos
+                self.y_pos = y_pos
+                self.x_vel = x_vel
+                self.y_vel = y_vel
+                self.radius = 5
+                self.color = (0, 0, 0)
+
+            def move(self):
+                self.x_pos += self.x_vel
+                self.y_pos += self.y_vel
+
+            def draw(self, screen):
+                pygame.draw.circle(screen, self.color, (self.x_pos, self.y_pos), self.radius)
+
     # Update is used to change sprite images upon key inputs
     def update(self, index):
         self.index = index
@@ -167,6 +183,11 @@ while run:
             fireSprite.rect.x = -2500
         # Below controls key bindings
         key = pygame.key.get_pressed()
+
+        # Bullet for player one
+        if key[pygame.K_v]:
+
+
         if key[pygame.K_w]:
             if Wall.can_move_to(tmxdata, player1.rect, 0, -1, SCOREBOARD_HEIGHT):
                 player1.moveForward(1)
