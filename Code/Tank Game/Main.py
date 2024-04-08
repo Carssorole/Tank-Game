@@ -132,7 +132,16 @@ while run:
         if key[pygame.K_v]:
             print(player1.index)
             if player1.index == 0:
-                player1bullet = bullet.Bullet(player1.rect.x, player1.rect.y)
+                player1bullet = bullet.Bullet(player1.rect.x + 40, player1.rect.y + 20)
+                player1bullet.draw(screen)
+            elif player1.index == 1:
+                player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 0)
+                player1bullet.draw(screen)
+            elif player1.index == 2:
+                player1bullet = bullet.Bullet(player1.rect.x + 0, player1.rect.y + 20)
+                player1bullet.draw(screen)
+            elif player1.index == 3:
+                player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 40)
                 player1bullet.draw(screen)
 
         if key[pygame.K_w]:

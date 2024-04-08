@@ -5,7 +5,7 @@ class Bullet:
     def __init__(self, x_pos, y_pos):
         self.x_pos = x_pos
         self.y_pos = y_pos
-        self.radius = 5
+        self.radius = 3
         self.color = (0, 0, 0)
 
     def move(self):
