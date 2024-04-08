@@ -130,10 +130,10 @@ while run:
         key = pygame.key.get_pressed()
 
         if key[pygame.K_v]:
-            print(player1.index)
             if player1.index == 0:
                 player1bullet = bullet.Bullet(player1.rect.x + 40, player1.rect.y + 20)
                 player1bullet.draw(screen)
+                player1bullet.move()
             elif player1.index == 1:
                 player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 0)
                 player1bullet.draw(screen)
