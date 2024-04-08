@@ -5,4 +5,4 @@ For Sprint 5, I followed a tutorial and ended up creating both a start screen an
 restarts the game, and "X" quits the game. In main, game states were implemented so this could function properly. I did not get to the secondary priority of preventing tank collision.
 
 ### Sprint 6 Goals
-For Sprint 6, my goal is to handle tank collision. This has been a secondary priority for me in the last two sprints, so I would like to get this completed. Also, I will add simple guidelines / instuctions for the user.
+For Sprint 6, my goal is to handle tank collision. This has been a secondary priority for me in the last two sprints, so I would like to get this completed. Also, I will add simple guidelines / instructions for the user.
