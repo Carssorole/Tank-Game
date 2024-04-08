@@ -4,6 +4,7 @@ from pytmx.util_pygame import load_pygame
 from player import Player
 import Wall
 import Menu
+import bullet
 
 pygame.init()
 
@@ -127,6 +128,12 @@ while run:
             fireSprite.rect.x = -2500
         # Below controls key bindings
         key = pygame.key.get_pressed()
+
+        if key[pygame.K_x]:
+            if player1.index == 0:
+                player1bullet = bullet.Bullet(player1.rect.x, player1.rect.y)
+                player1bullet.draw(screen)
+
         if key[pygame.K_w]:
             if Wall.can_move_to(tmxdata, player1.rect, 0, -1, SCOREBOARD_HEIGHT):
                 player1.moveForward(1)
