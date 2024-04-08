@@ -1,8 +1,8 @@
 import pygame
 import random
-import pytmx
 from pytmx.util_pygame import load_pygame
 import Wall
+import Menu
 
 pygame.init()
 
@@ -105,80 +105,122 @@ player2 = Player(RedTankImages, SCREEN_WIDTH - 100, SCREEN_HEIGHT / 2 - SCOREBOA
 fireSprite = Player(FireImages, -300, (SCREEN_HEIGHT / 20 - (SCOREBOARD_HEIGHT + 28)))
 
 run = True
+menu = True
+game_over = False
+
 while run:
-    screen.fill((34, 139, 34))
-    Wall.wall_tiles(screen, tmxdata, SCREEN_HEIGHT, SCOREBOARD_HEIGHT)
+    if menu:
+        Menu.draw_start_menu(screen, SCREEN_WIDTH, SCREEN_HEIGHT)
 
-    screen.blit(player1.image, (player1.rect.x, player1.rect.y))
-    screen.blit(player2.image, (player2.rect.x, player2.rect.y))
-# Below controls the scoreboard and animations
-    pygame.draw.rect(screen, (0, 0, 0), pygame.Rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 10))
-    screen.blit(fireSprite.image, fireSprite.rect)
-    screen.blit(gameText, gameTextRect)
-    screen.blit(blueText, blueTextRect)
-    screen.blit(redText, redTextRect)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+                break
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    menu = False
+                elif event.key == pygame.K_x:
+                    run = False
+                    break
 
-    gameTextRect.center = (-(fireSprite.rect.x + 1000), SCREEN_HEIGHT/20)
+        pygame.display.update()
+        clock.tick(60)
 
-    fireSprite.updateJumbotron()
-    fireSprite.image = pygame.transform.scale(fireSprite.image, (160, 60))
+    elif game_over:
+        Menu.draw_game_over(screen, SCREEN_WIDTH, SCREEN_HEIGHT)
 
-    if fireSprite.rect.x <= SCREEN_WIDTH - 80 and fireSprite.elapsed == 0 or 5:
-        fireSprite.moveRight(1)
-    if fireSprite.rect.x >= SCREEN_WIDTH + 80:
-        fireSprite.rect.x = -2500
-# Below controls key bindings
-    key = pygame.key.get_pressed()
-    if key[pygame.K_w]:
-        if Wall.can_move_to(tmxdata, player1.rect, 0, -1, SCOREBOARD_HEIGHT):
-            player1.moveForward(1)
-        player1.update(1)
-        player1.image = pygame.transform.scale(player1.image, (40, 40))
-    elif key[pygame.K_s]:
-        if Wall.can_move_to(tmxdata, player1.rect, 0, 1, SCOREBOARD_HEIGHT):
-            player1.moveBack(1)
-        player1.update(3)
-        player1.image = pygame.transform.scale(player1.image, (40, 40))
-    elif key[pygame.K_a]:
-        if Wall.can_move_to(tmxdata, player1.rect, -1, 0, SCOREBOARD_HEIGHT):
-            player1.moveLeft(1)
-        player1.update(2)
-        player1.image = pygame.transform.scale(player1.image, (40, 40))
-    elif key[pygame.K_d]:
-        if Wall.can_move_to(tmxdata, player1.rect, 1, 0, SCOREBOARD_HEIGHT):
-            player1.moveRight(1)
-        player1.update(0)
-        player1.image = pygame.transform.scale(player1.image, (40, 40))
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+                break
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    game_over = False
+                    run = True
+                elif event.key == pygame.K_x:
+                    run = False
+                    break
 
-    if key[pygame.K_SPACE]:
-        player1.image = pygame.transform.rotate(player1.image, 2)
+        clock.tick(330)
 
-    if key[pygame.K_UP]:
-        if Wall.can_move_to(tmxdata, player2.rect, 0, -1, SCOREBOARD_HEIGHT):
-            player2.moveForward(1)
-        player2.update(1)
-        player2.image = pygame.transform.scale(player2.image, (40, 40))
-    elif key[pygame.K_DOWN]:
-        if Wall.can_move_to(tmxdata, player2.rect, 0, 1, SCOREBOARD_HEIGHT):
-            player2.moveBack(1)
-        player2.update(3)
-        player2.image = pygame.transform.scale(player2.image, (40, 40))
-    elif key[pygame.K_RIGHT]:
-        if Wall.can_move_to(tmxdata, player2.rect, 1, 0, SCOREBOARD_HEIGHT):
-            player2.moveRight(1)
-        player2.update(2)
-        player2.image = pygame.transform.scale(player2.image, (40, 40))
-    elif key[pygame.K_LEFT]:
-        if Wall.can_move_to(tmxdata, player2.rect, -1, 0, SCOREBOARD_HEIGHT):
-            player2.moveLeft(1)
-        player2.update(0)
-        player2.image = pygame.transform.scale(player2.image, (40, 40))
+    else:
+        screen.fill((34, 139, 34))
+        Wall.wall_tiles(screen, tmxdata, SCREEN_HEIGHT, SCOREBOARD_HEIGHT)
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
+        screen.blit(player1.image, (player1.rect.x, player1.rect.y))
+        screen.blit(player2.image, (player2.rect.x, player2.rect.y))
+        # Below controls the scoreboard and animations
+        pygame.draw.rect(screen, (0, 0, 0), pygame.Rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 10))
+        screen.blit(fireSprite.image, fireSprite.rect)
+        screen.blit(gameText, gameTextRect)
+        screen.blit(blueText, blueTextRect)
+        screen.blit(redText, redTextRect)
 
-    pygame.display.update()
-    clock.tick(120)
+        gameTextRect.center = (-(fireSprite.rect.x + 1000), SCREEN_HEIGHT/20)
+
+        fireSprite.updateJumbotron()
+        fireSprite.image = pygame.transform.scale(fireSprite.image, (160, 60))
+
+        if fireSprite.rect.x <= SCREEN_WIDTH - 80 and fireSprite.elapsed == 0 or 5:
+            fireSprite.moveRight(1)
+        if fireSprite.rect.x >= SCREEN_WIDTH + 80:
+            fireSprite.rect.x = -2500
+        # Below controls key bindings
+        key = pygame.key.get_pressed()
+        if key[pygame.K_w]:
+            if Wall.can_move_to(tmxdata, player1.rect, 0, -1, SCOREBOARD_HEIGHT):
+                player1.moveForward(1)
+            player1.update(1)
+            player1.image = pygame.transform.scale(player1.image, (40, 40))
+        elif key[pygame.K_s]:
+            if Wall.can_move_to(tmxdata, player1.rect, 0, 1, SCOREBOARD_HEIGHT):
+                player1.moveBack(1)
+            player1.update(3)
+            player1.image = pygame.transform.scale(player1.image, (40, 40))
+        elif key[pygame.K_a]:
+            if Wall.can_move_to(tmxdata, player1.rect, -1, 0, SCOREBOARD_HEIGHT):
+                player1.moveLeft(1)
+            player1.update(2)
+            player1.image = pygame.transform.scale(player1.image, (40, 40))
+        elif key[pygame.K_d]:
+            if Wall.can_move_to(tmxdata, player1.rect, 1, 0, SCOREBOARD_HEIGHT):
+                player1.moveRight(1)
+            player1.update(0)
+            player1.image = pygame.transform.scale(player1.image, (40, 40))
+
+        if key[pygame.K_SPACE]:
+            player1.image = pygame.transform.rotate(player1.image, 2)
+
+        # Used until other game over logic is implemented (Press 5 to end game)
+        if key[pygame.K_5]:
+            game_over = True
+
+        if key[pygame.K_UP]:
+            if Wall.can_move_to(tmxdata, player2.rect, 0, -1, SCOREBOARD_HEIGHT):
+                player2.moveForward(1)
+            player2.update(1)
+            player2.image = pygame.transform.scale(player2.image, (40, 40))
+        elif key[pygame.K_DOWN]:
+            if Wall.can_move_to(tmxdata, player2.rect, 0, 1, SCOREBOARD_HEIGHT):
+                player2.moveBack(1)
+            player2.update(3)
+            player2.image = pygame.transform.scale(player2.image, (40, 40))
+        elif key[pygame.K_RIGHT]:
+            if Wall.can_move_to(tmxdata, player2.rect, 1, 0, SCOREBOARD_HEIGHT):
+                player2.moveRight(1)
+            player2.update(2)
+            player2.image = pygame.transform.scale(player2.image, (40, 40))
+        elif key[pygame.K_LEFT]:
+            if Wall.can_move_to(tmxdata, player2.rect, -1, 0, SCOREBOARD_HEIGHT):
+                player2.moveLeft(1)
+            player2.update(0)
+            player2.image = pygame.transform.scale(player2.image, (40, 40))
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+
+        pygame.display.update()
+        clock.tick(120)
 
 pygame.quit()
