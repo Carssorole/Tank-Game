@@ -4,26 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44fb7612-64b3-4a0d-81bc-ab09a14946cb" name="Changes" comment="ADDED&#10;- Nothing but HEAT&#10;- Game music&#10;- Assets folder&#10;- Documentation">
-      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/Assets/Fire Frame8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Tank-Game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Tank-Game.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="44fb7612-64b3-4a0d-81bc-ab09a14946cb" name="Changes" comment="ADDED&#10;- 8-bit fire sprite animation to scoreboard&#10;- Tank Game text on jumbo tron">
+      <change afterPath="$PROJECT_DIR$/Code/Tank Game/player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Tank Game/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Tank Game/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Tank Game/PressStart2P-vaV7.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Assets/PressStart2P-vaV7.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Tank Game/bullet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Tank Game/bullet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -69,50 +65,6 @@
       <recent name="C:\Users\Jgper\OneDrive\Documents\GitHub\Tank-Game\Code\Assets" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="JGPerks" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\Jgper\anaconda3\envs\Tank-Game\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Implementation/S1" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Implementation/S1/JPerks.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="JPerks" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="Tank-Game" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\Jgper\anaconda3\envs\Tank-Game\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Implementation/S1" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Implementation/S1/JPerks.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -143,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712209406567</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ADDED&#10;- 8-bit fire sprite animation to scoreboard&#10;- Tank Game text on jumbo tron">
+      <created>1712453012444</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712453012444</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,6 +119,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Rename" />
     <MESSAGE value="ADDED&#10;- Nothing but HEAT&#10;- Game music&#10;- Assets folder&#10;- Documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="ADDED&#10;- Nothing but HEAT&#10;- Game music&#10;- Assets folder&#10;- Documentation" />
+    <MESSAGE value="ADDED&#10;- 8-bit fire sprite animation to scoreboard&#10;- Tank Game text on jumbo tron" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADDED&#10;- 8-bit fire sprite animation to scoreboard&#10;- Tank Game text on jumbo tron" />
   </component>
 </project>
