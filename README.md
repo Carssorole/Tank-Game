@@ -7,6 +7,7 @@ This game will be programmed in Python using the common pygame import.
 ## Package Requirements
 
 - PyGame
+- PyTMX
 
 ## How to Play
 
