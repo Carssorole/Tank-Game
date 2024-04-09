@@ -1,8 +1,10 @@
 import pygame
 import random
 from pytmx.util_pygame import load_pygame
+from player import Player
 import Wall
 import Menu
+import bullet
 
 pygame.init()
 
@@ -37,47 +39,6 @@ pygame.mixer.music.set_volume(0.6)
 
 clock = pygame.time.Clock()
 tmxdata = load_pygame('tankmap1.tmx')
-
-
-class Player(pygame.sprite.Sprite):
-    def __init__(self, images, x, y):
-        super().__init__()
-        self.elapsed = 0
-        self.sprites = images
-        self.index = 0
-        self.image = self.sprites[self.index]
-        self.image = pygame.transform.scale(self.image, (40, 40))
-        self.rect = self.image.get_rect()
-        self.rect.x = x
-        self.rect.y = y + SCOREBOARD_HEIGHT
-
-    # Update is used to change sprite images upon key inputs
-    def update(self, index):
-        self.index = index
-
-        if self.index >= len(self.sprites):
-            self.index = 0
-
-        self.image = self.sprites[self.index]
-
-    def updateJumbotron(self):
-        self.elapsed = self.elapsed + 1
-        if self.elapsed > 10:
-            self.update(self.index + 1)
-            self.elapsed = 0
-            self.image = pygame.transform.rotate(self.image, 90)
-
-    def moveRight(self, pixels):
-        self.rect.x += pixels
-
-    def moveLeft(self, pixels):
-        self.rect.x -= pixels
-
-    def moveForward(self, pixels):
-        self.rect.y -= pixels
-
-    def moveBack(self, pixels):
-        self.rect.y += pixels
 
 
 BlueTankImages = [pygame.image.load("../Assets/Blue Tank FaceRight.png").convert_alpha(),
@@ -167,6 +128,37 @@ while run:
             fireSprite.rect.x = -2500
         # Below controls key bindings
         key = pygame.key.get_pressed()
+
+        if key[pygame.K_v]:
+            if player1.index == 0:
+                player1bullet = bullet.Bullet(player1.rect.x + 40, player1.rect.y + 20)
+                player1bullet.draw(screen)
+                player1bullet.move()
+            elif player1.index == 1:
+                player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 0)
+                player1bullet.draw(screen)
+            elif player1.index == 2:
+                player1bullet = bullet.Bullet(player1.rect.x + 0, player1.rect.y + 20)
+                player1bullet.draw(screen)
+            elif player1.index == 3:
+                player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 40)
+                player1bullet.draw(screen)
+
+        if key[pygame.K_m]:
+            if player2.index == 0:
+                player2bullet = bullet.Bullet(player2.rect.x + 0, player2.rect.y + 20)
+                player2bullet.draw(screen)
+                player2bullet.move()
+            elif player2.index == 1:
+                player2bullet = bullet.Bullet(player2.rect.x + 20, player2.rect.y + 0)
+                player2bullet.draw(screen)
+            elif player2.index == 2:
+                player2bullet = bullet.Bullet(player2.rect.x + 40, player2.rect.y + 20)
+                player2bullet.draw(screen)
+            elif player2.index == 3:
+                player2bullet = bullet.Bullet(player2.rect.x + 20, player2.rect.y + 40)
+                player2bullet.draw(screen)
+
         if key[pygame.K_w]:
             if Wall.can_move_to(tmxdata, player1.rect, 0, -1, SCOREBOARD_HEIGHT):
                 player1.moveForward(1)
@@ -190,6 +182,28 @@ while run:
 
         if key[pygame.K_SPACE]:
             player1.image = pygame.transform.rotate(player1.image, 2)
+            player2.image = pygame.transform.rotate(player2.image, 2)
+
+        # Used until player hit boxes and bullet implementation is achieved
+        if key[pygame.K_7]:
+            spawnPointX = [50, 50, 50, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100,
+                           SCREEN_WIDTH/2 - 15, SCREEN_WIDTH/2 - 15]
+            spawnPointY = [SCREEN_HEIGHT/2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT/2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT/2 + 160, SCREEN_HEIGHT/2 - 140]
+            setSpawn = random.randint(0, 7)
+            player1.rect.x = spawnPointX[setSpawn]
+            player1.rect.y = spawnPointY[setSpawn]
+
+        if key[pygame.K_8]:
+            spawnPointX = [50, 50, 50, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100,
+                           SCREEN_WIDTH/2 - 15, SCREEN_WIDTH/2 - 15]
+            spawnPointY = [SCREEN_HEIGHT/2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT/2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT/2 + 160, SCREEN_HEIGHT/2 - 140]
+            setSpawn = random.randint(0, 7)
+            player2.rect.x = spawnPointX[setSpawn]
+            player2.rect.y = spawnPointY[setSpawn]
 
         # Used until other game over logic is implemented (Press 5 to end game)
         if key[pygame.K_5]:
