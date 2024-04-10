@@ -41,3 +41,6 @@ class Player(pygame.sprite.Sprite):
 
     def moveBack(self, pixels):
         self.rect.y += pixels
+
+    def detectCollision(self, sprite):
+        return self.rect.colliderect(sprite.rect)

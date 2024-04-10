@@ -68,6 +68,7 @@ fireSprite = Player(FireImages, -300, (SCREEN_HEIGHT / 20 - (SCOREBOARD_HEIGHT +
 run = True
 menu = True
 game_over = False
+instructions = False
 
 while run:
     if menu:
@@ -80,12 +81,23 @@ while run:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     menu = False
+                    instructions = True
                 elif event.key == pygame.K_x:
                     run = False
                     break
 
         pygame.display.update()
         clock.tick(60)
+
+    elif instructions:
+        Menu.draw_instructions_menu(screen, SCREEN_WIDTH, SCREEN_HEIGHT)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_1:
+                    instructions = False
 
     elif game_over:
         Menu.draw_game_over(screen, SCREEN_WIDTH, SCREEN_HEIGHT)
@@ -162,21 +174,29 @@ while run:
         if key[pygame.K_w]:
             if Wall.can_move_to(tmxdata, player1.rect, 0, -1, SCOREBOARD_HEIGHT):
                 player1.moveForward(1)
+            if player1.detectCollision(player2):
+                player1.moveBack(1)
             player1.update(1)
             player1.image = pygame.transform.scale(player1.image, (40, 40))
         elif key[pygame.K_s]:
             if Wall.can_move_to(tmxdata, player1.rect, 0, 1, SCOREBOARD_HEIGHT):
                 player1.moveBack(1)
+            if player1.detectCollision(player2):
+                player1.moveForward(1)
             player1.update(3)
             player1.image = pygame.transform.scale(player1.image, (40, 40))
         elif key[pygame.K_a]:
             if Wall.can_move_to(tmxdata, player1.rect, -1, 0, SCOREBOARD_HEIGHT):
                 player1.moveLeft(1)
+            if player1.detectCollision(player2):
+                player1.moveRight(1)
             player1.update(2)
             player1.image = pygame.transform.scale(player1.image, (40, 40))
         elif key[pygame.K_d]:
             if Wall.can_move_to(tmxdata, player1.rect, 1, 0, SCOREBOARD_HEIGHT):
                 player1.moveRight(1)
+            if player1.detectCollision(player2):
+                player1.moveLeft(1)
             player1.update(0)
             player1.image = pygame.transform.scale(player1.image, (40, 40))
 
@@ -212,21 +232,29 @@ while run:
         if key[pygame.K_UP]:
             if Wall.can_move_to(tmxdata, player2.rect, 0, -1, SCOREBOARD_HEIGHT):
                 player2.moveForward(1)
+            if player2.detectCollision(player1):
+                player2.moveBack(1)
             player2.update(1)
             player2.image = pygame.transform.scale(player2.image, (40, 40))
         elif key[pygame.K_DOWN]:
             if Wall.can_move_to(tmxdata, player2.rect, 0, 1, SCOREBOARD_HEIGHT):
                 player2.moveBack(1)
+            if player2.detectCollision(player1):
+                player2.moveForward(1)
             player2.update(3)
             player2.image = pygame.transform.scale(player2.image, (40, 40))
         elif key[pygame.K_RIGHT]:
             if Wall.can_move_to(tmxdata, player2.rect, 1, 0, SCOREBOARD_HEIGHT):
                 player2.moveRight(1)
+            if player2.detectCollision(player1):
+                player2.moveLeft(1)
             player2.update(2)
             player2.image = pygame.transform.scale(player2.image, (40, 40))
         elif key[pygame.K_LEFT]:
             if Wall.can_move_to(tmxdata, player2.rect, -1, 0, SCOREBOARD_HEIGHT):
                 player2.moveLeft(1)
+            if player2.detectCollision(player1):
+                player2.moveRight(1)
             player2.update(0)
             player2.image = pygame.transform.scale(player2.image, (40, 40))
 

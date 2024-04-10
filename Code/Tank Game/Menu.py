@@ -24,3 +24,12 @@ def draw_game_over(screen, width, height):
 
     pygame.display.update()
 
+
+def draw_instructions_menu(screen, width, height):
+    background_image = pygame.image.load('../Assets/instructions.png')
+    background_image = pygame.transform.scale(background_image, (width, height))
+
+    screen.blit(background_image, (0, 0))
+
+    pygame.display.update()
+
