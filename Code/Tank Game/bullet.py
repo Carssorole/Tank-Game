@@ -10,13 +10,13 @@ class Bullet:
         self.speed_x = 2
         self.speed_y = 2
 
-    def move(self):
+    def move(self, screen):
         self.x_pos += self.speed_x
-        self.y_pos += self.speed_y
 
-
-shoot = True
-
-while shoot:
-    def draw(self, screen):
-        pygame.draw.circle(screen, self.color, (self.x_pos, self.y_pos), self.radius)
+    def shoot(self, screen):
+        time = 10
+        if time > 0:
+            pygame.draw.circle(screen, self.color, (self.x_pos, self.y_pos), self.radius)
+            self.x_pos += self.speed_x
+            self.x_pos += self.speed_y
+            time -= 1
