@@ -40,7 +40,6 @@ pygame.mixer.music.set_volume(0.6)
 clock = pygame.time.Clock()
 tmxdata = load_pygame('tankmap1.tmx')
 
-
 BlueTankImages = [pygame.image.load("../Assets/Blue Tank FaceRight.png").convert_alpha(),
                   pygame.image.load("../Assets/Blue Tank FaceTop.png").convert_alpha(),
                   pygame.image.load("../Assets/Blue Tank FaceLeft.png").convert_alpha(),
@@ -129,7 +128,7 @@ while run:
         screen.blit(blueText, blueTextRect)
         screen.blit(redText, redTextRect)
 
-        gameTextRect.center = (-(fireSprite.rect.x + 1000), SCREEN_HEIGHT/20)
+        gameTextRect.center = (-(fireSprite.rect.x + 1000), SCREEN_HEIGHT / 20)
 
         fireSprite.updateJumbotron()
         fireSprite.image = pygame.transform.scale(fireSprite.image, (160, 60))
@@ -145,6 +144,12 @@ while run:
             if player1.index == 0:
                 player1bullet = bullet.Bullet(player1.rect.x + 40, player1.rect.y + 20)
                 player1bullet.shoot(screen)
+                time = 1000
+                if time > 0:
+                    player1bullet.move(screen)
+                    time -= 1
+                else:
+                    print("Done")
             elif player1.index == 1:
                 player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 0)
                 player1bullet.shoot(screen)
@@ -205,20 +210,20 @@ while run:
         # Used until player hit boxes and bullet implementation is achieved
         if key[pygame.K_7]:
             spawnPointX = [50, 50, 50, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100,
-                           SCREEN_WIDTH/2 - 15, SCREEN_WIDTH/2 - 15]
-            spawnPointY = [SCREEN_HEIGHT/2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
-                           SCREEN_HEIGHT/2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
-                           SCREEN_HEIGHT/2 + 160, SCREEN_HEIGHT/2 - 140]
+                           SCREEN_WIDTH / 2 - 15, SCREEN_WIDTH / 2 - 15]
+            spawnPointY = [SCREEN_HEIGHT / 2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT / 2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT / 2 + 160, SCREEN_HEIGHT / 2 - 140]
             setSpawn = random.randint(0, 7)
             player1.rect.x = spawnPointX[setSpawn]
             player1.rect.y = spawnPointY[setSpawn]
 
         if key[pygame.K_8]:
             spawnPointX = [50, 50, 50, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100,
-                           SCREEN_WIDTH/2 - 15, SCREEN_WIDTH/2 - 15]
-            spawnPointY = [SCREEN_HEIGHT/2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
-                           SCREEN_HEIGHT/2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
-                           SCREEN_HEIGHT/2 + 160, SCREEN_HEIGHT/2 - 140]
+                           SCREEN_WIDTH / 2 - 15, SCREEN_WIDTH / 2 - 15]
+            spawnPointY = [SCREEN_HEIGHT / 2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT / 2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT / 2 + 160, SCREEN_HEIGHT / 2 - 140]
             setSpawn = random.randint(0, 7)
             player2.rect.x = spawnPointX[setSpawn]
             player2.rect.y = spawnPointY[setSpawn]
