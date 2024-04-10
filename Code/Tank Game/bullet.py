@@ -14,9 +14,9 @@ class Bullet:
         self.x_pos += self.speed_x
         self.y_pos += self.speed_y
 
+
 shoot = True
 
 while shoot:
-
     def draw(self, screen):
         pygame.draw.circle(screen, self.color, (self.x_pos, self.y_pos), self.radius)
