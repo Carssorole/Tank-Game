@@ -86,7 +86,6 @@ while run:
                     break
 
         pygame.display.update()
-        clock.tick(60)
 
     elif instructions:
         Menu.draw_instructions_menu(screen, SCREEN_WIDTH, SCREEN_HEIGHT)
@@ -112,8 +111,6 @@ while run:
                 elif event.key == pygame.K_x:
                     run = False
                     break
-
-        clock.tick(330)
 
     else:
         screen.fill((34, 139, 34))
@@ -143,36 +140,30 @@ while run:
         if key[pygame.K_v]:
             if player1.index == 0:
                 player1bullet = bullet.Bullet(player1.rect.x + 40, player1.rect.y + 20)
-                player1bullet.shoot(screen)
-                time = 1000
-                if time > 0:
-                    player1bullet.move(screen)
-                    time -= 1
-                else:
-                    print("Done")
+                player1bullet.shootRight(screen)
             elif player1.index == 1:
                 player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 0)
-                player1bullet.shoot(screen)
+                player1bullet.shootUp(screen)
             elif player1.index == 2:
                 player1bullet = bullet.Bullet(player1.rect.x + 0, player1.rect.y + 20)
-                player1bullet.shoot(screen)
+                player1bullet.shootLeft(screen)
             elif player1.index == 3:
                 player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 40)
-                player1bullet.shoot(screen)
+                player1bullet.shootDown(screen)
 
         if key[pygame.K_m]:
             if player2.index == 0:
                 player2bullet = bullet.Bullet(player2.rect.x + 0, player2.rect.y + 20)
-                player2bullet.shoot(screen)
+                player2bullet.shootLeft(screen)
             elif player2.index == 1:
                 player2bullet = bullet.Bullet(player2.rect.x + 20, player2.rect.y + 0)
-                player2bullet.shoot(screen)
+                player2bullet.shootUp(screen)
             elif player2.index == 2:
                 player2bullet = bullet.Bullet(player2.rect.x + 40, player2.rect.y + 20)
-                player2bullet.shoot(screen)
+                player2bullet.shootRight(screen)
             elif player2.index == 3:
                 player2bullet = bullet.Bullet(player2.rect.x + 20, player2.rect.y + 40)
-                player2bullet.shoot(screen)
+                player2bullet.shootDown(screen)
 
         if key[pygame.K_w]:
             if Wall.can_move_to(tmxdata, player1.rect, 0, -1, SCOREBOARD_HEIGHT):
