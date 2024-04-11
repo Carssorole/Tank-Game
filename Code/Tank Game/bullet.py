@@ -17,12 +17,12 @@ class Bullet:
 
     def shootRight(self, screen):
 
-        while self.time < 3000:
+        while self.time < 300:
             self.x_pos += self.speed_x
 
             pygame.draw.circle(screen, (0, 0, 255), (self.x_pos, self.y_pos), self.radius)
             self.time = self.time + 1
-
+            pygame.display.update()
     def shootLeft(self, screen):
 
         while self.time < 3000:
