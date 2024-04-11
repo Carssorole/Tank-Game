@@ -32,7 +32,8 @@ redTextRect.center = ((SCREEN_WIDTH / 3 * 2), SCREEN_HEIGHT / 20)
 gameText = font.render("Tank Game", True, (191, 0, 255))
 gameTextRect = gameText.get_rect()
 # Plays random track from musicList and loops it
-musicList = ["../Assets/Chip Suey.wav", "../Assets/Paper Planes.wav", "../Assets/For What.wav"]
+musicList = ["../Assets/Chip Suey.wav", "../Assets/Paper Planes.wav", "../Assets/For What.wav",
+             "../Assets/Centuries.wav", "../Assets/Blue.wav"]
 pygame.mixer.music.load(musicList[random.randint(0, len(musicList) - 1)])
 pygame.mixer.music.play(-1)
 pygame.mixer.music.set_volume(0.6)
@@ -63,6 +64,7 @@ player1 = Player(BlueTankImages, 50, SCREEN_HEIGHT / 2 - SCOREBOARD_HEIGHT + 10)
 player2 = Player(RedTankImages, SCREEN_WIDTH - 100, SCREEN_HEIGHT / 2 - SCOREBOARD_HEIGHT + 10)
 
 fireSprite = Player(FireImages, -300, (SCREEN_HEIGHT / 20 - (SCOREBOARD_HEIGHT + 28)))
+player1bullet = bullet.Bullet(player1.rect.x + 40, player1.rect.y + 20, (0, 255, 0))
 
 run = True
 menu = True
@@ -139,30 +141,37 @@ while run:
 
         if key[pygame.K_v]:
             if player1.index == 0:
-                player1bullet = bullet.Bullet(player1.rect.x + 40, player1.rect.y + 20)
-                player1bullet.shootRight(screen)
+                player1bullet = bullet.Bullet(player1.rect.x + 40, player1.rect.y + 20, (0, 255, 0))
             elif player1.index == 1:
-                player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 0)
+                player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 0, (0, 255, 0))
                 player1bullet.shootUp(screen)
             elif player1.index == 2:
-                player1bullet = bullet.Bullet(player1.rect.x + 0, player1.rect.y + 20)
+                player1bullet = bullet.Bullet(player1.rect.x + 0, player1.rect.y + 20, (0, 255, 0))
                 player1bullet.shootLeft(screen)
             elif player1.index == 3:
-                player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 40)
+                player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 40, (0, 255, 0))
                 player1bullet.shootDown(screen)
+
+        if player1bullet.time < 500:
+            player1bullet.x_pos += 2
+            pygame.draw.circle(screen, player1bullet.color, (player1bullet.x_pos, player1bullet.y_pos), player1bullet.radius)
+        elif player1bullet.time >= 500:
+            player1bullet.x_pos = -100
+
+        player1bullet.time += 1
 
         if key[pygame.K_m]:
             if player2.index == 0:
-                player2bullet = bullet.Bullet(player2.rect.x + 0, player2.rect.y + 20)
+                player2bullet = bullet.Bullet(player2.rect.x + 0, player2.rect.y + 20, (0, 255, 0))
                 player2bullet.shootLeft(screen)
             elif player2.index == 1:
-                player2bullet = bullet.Bullet(player2.rect.x + 20, player2.rect.y + 0)
+                player2bullet = bullet.Bullet(player2.rect.x + 20, player2.rect.y + 0, (0, 255, 0))
                 player2bullet.shootUp(screen)
             elif player2.index == 2:
-                player2bullet = bullet.Bullet(player2.rect.x + 40, player2.rect.y + 20)
+                player2bullet = bullet.Bullet(player2.rect.x + 40, player2.rect.y + 20, (0, 255, 0))
                 player2bullet.shootRight(screen)
             elif player2.index == 3:
-                player2bullet = bullet.Bullet(player2.rect.x + 20, player2.rect.y + 40)
+                player2bullet = bullet.Bullet(player2.rect.x + 20, player2.rect.y + 40, (0, 255, 0))
                 player2bullet.shootDown(screen)
 
         if key[pygame.K_w]:
