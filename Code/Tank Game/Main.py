@@ -67,6 +67,8 @@ player2 = Player(RedTankImages, SCREEN_WIDTH - 100, SCREEN_HEIGHT / 2 - SCOREBOA
 
 fireSprite = Player(FireImages, -300, (SCREEN_HEIGHT / 20 - (SCOREBOARD_HEIGHT + 28)))
 player1bullet = bullet.Bullet(player1.rect.x + 40, player1.rect.y + 2000, (0, 0, 0))
+player2bullet = bullet.Bullet(player2.rect.x + 0, player2.rect.y + 2000, (0, 255, 0))
+
 
 run = True
 menu = True
@@ -140,7 +142,7 @@ while run:
             fireSprite.rect.x = -2500
         # Below controls key bindings
         key = pygame.key.get_pressed()
-# trajectoryVar looks useless but the dang thing won't work without it.
+        # trajectoryVar looks useless but the dang thing won't work without it.
         if key[pygame.K_v] and player1bullet.cooldown:
             if player1.index == 0:
                 player1bullet.direction = 0
@@ -150,17 +152,14 @@ while run:
                 player1bullet.direction = 1
                 trajectoryVar = player1bullet.direction
                 player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 0, (0, 0, 255))
-                #player1bullet.shootUp(screen)
             elif player1.index == 2:
                 player1bullet.direction = 2
                 trajectoryVar = player1bullet.direction
                 player1bullet = bullet.Bullet(player1.rect.x + 0, player1.rect.y + 20, (0, 0, 255))
-                #player1bullet.shootLeft(screen)
             elif player1.index == 3:
                 player1bullet.direction = 3
                 trajectoryVar = player1bullet.direction
                 player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 40, (0, 0, 255))
-                #player1bullet.shootDown(screen)
 
 # Below controls player1's bullet direction and cooldown
         if player1bullet.time < 300:
@@ -185,32 +184,94 @@ while run:
                 pygame.draw.circle(screen, player1bullet.color, (player1bullet.x_pos, player1bullet.y_pos), player1bullet.radius)
 
         if player1bullet.time >= 300:
-            #player1bullet.x_pos = -1000
             player1bullet.cooldown = True
+        # Controls player2's hitbox dimensions and hit registry
+        if player2.rect.x - 20 <= player1bullet.x_pos <= player2.rect.x + 20 \
+                and player2.rect.y - 20 <= player1bullet.y_pos <= player2.rect.y + 20:
 
-        if player1bullet.x_pos >= player2.rect.x - 20 and player1bullet.x_pos <= player2.rect.x + 20 and player1bullet.y_pos >= player2.rect.y - 20 and player1bullet.y_pos <= player2.rect.y + 20:
-            #key = [pygame.K_7]
             blueScore += 1
             blueText = font.render(str(blueScore), True, (63, 196, 255))
             blueTextRect = blueText.get_rect()
             blueTextRect.center = (SCREEN_WIDTH / 3, SCREEN_HEIGHT / 20)
-            print("HIT")
-        print(str(player1bullet.x_pos) + " " + str(player2.rect.x))
+            player1bullet = bullet.Bullet(player1.rect.x + 40, player1.rect.y + 2000, (0, 0, 0))
+            # Controls player2's respawn
+            spawnPointX = [50, 50, 50, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100,
+                           SCREEN_WIDTH / 2 - 15, SCREEN_WIDTH / 2 - 15]
+            spawnPointY = [SCREEN_HEIGHT / 2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT / 2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT / 2 + 160, SCREEN_HEIGHT / 2 - 140]
+            setSpawn = random.randint(0, 7)
+            player2.rect.x = spawnPointX[setSpawn]
+            player2.rect.y = spawnPointY[setSpawn]
+
         player1bullet.time += 1
 
-        if key[pygame.K_m]:
+        if key[pygame.K_m] and player2bullet.cooldown:
             if player2.index == 0:
-                player2bullet = bullet.Bullet(player2.rect.x + 0, player2.rect.y + 20, (0, 255, 0))
-                #player2bullet.shootLeft(screen)
+                player2bullet.direction = 0
+                trajectoryVar = player2bullet.direction
+                player2bullet = bullet.Bullet(player2.rect.x + 0, player2.rect.y + 20, (255, 0, 0))
             elif player2.index == 1:
-                player2bullet = bullet.Bullet(player2.rect.x + 20, player2.rect.y + 0, (0, 255, 0))
-                #player2bullet.shootUp(screen)
+                player2bullet.direction = 1
+                trajectoryVar = player2bullet.direction
+                player2bullet = bullet.Bullet(player2.rect.x + 20, player2.rect.y + 0, (255, 0, 0))
             elif player2.index == 2:
-                player2bullet = bullet.Bullet(player2.rect.x + 40, player2.rect.y + 20, (0, 255, 0))
-                #player2bullet.shootRight(screen)
+                player2bullet.direction = 2
+                trajectoryVar = player2bullet.direction
+                player2bullet = bullet.Bullet(player2.rect.x + 40, player2.rect.y + 20, (255, 0, 0))
             elif player2.index == 3:
-                player2bullet = bullet.Bullet(player2.rect.x + 20, player2.rect.y + 40, (0, 255, 0))
-                #player2bullet.shootDown(screen)
+                player2bullet.direction = 3
+                trajectoryVar = player2bullet.direction
+                player2bullet = bullet.Bullet(player2.rect.x + 20, player2.rect.y + 40, (255, 0, 0))
+
+        # Below controls player2's bullet direction and cooldown
+        if player2bullet.time < 300:
+
+            player2bullet.direction = trajectoryVar
+
+            if player2bullet.direction == 0:
+                player2bullet.x_pos -= 3
+                player2bullet.cooldown = False
+                pygame.draw.circle(screen, player2bullet.color, (player2bullet.x_pos, player2bullet.y_pos),
+                                   player2bullet.radius)
+            elif player2bullet.direction == 1:
+                player2bullet.y_pos -= 3
+                player2bullet.cooldown = False
+                pygame.draw.circle(screen, player2bullet.color, (player2bullet.x_pos, player2bullet.y_pos),
+                                   player2bullet.radius)
+            elif player2bullet.direction == 2:
+                player2bullet.x_pos += 3
+                player2bullet.cooldown = False
+                pygame.draw.circle(screen, player2bullet.color, (player2bullet.x_pos, player2bullet.y_pos),
+                                   player2bullet.radius)
+            elif player2bullet.direction == 3:
+                player2bullet.y_pos += 3
+                player2bullet.cooldown = False
+                pygame.draw.circle(screen, player2bullet.color, (player2bullet.x_pos, player2bullet.y_pos),
+                                   player2bullet.radius)
+
+        if player2bullet.time >= 300:
+            player2bullet.cooldown = True
+        # Controls player1's hitbox dimensions and hit registry
+        if player1.rect.x - 20 <= player2bullet.x_pos <= player1.rect.x + 20 \
+                and player1.rect.y - 20 <= player2bullet.y_pos <= player1.rect.y + 20:
+
+            redScore += 1
+            redText = font.render(str(redScore), True, (255, 0, 0))
+            redTextRect = redText.get_rect()
+            redTextRect.center = ((SCREEN_WIDTH / 3 * 2), SCREEN_HEIGHT / 20)
+            player2bullet = bullet.Bullet(player1.rect.x + 0, player1.rect.y + 2000, (0, 0, 0))
+        # Controls player1's respawn
+            spawnPointX = [50, 50, 50, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100,
+                           SCREEN_WIDTH / 2 - 15, SCREEN_WIDTH / 2 - 15]
+            spawnPointY = [SCREEN_HEIGHT / 2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT / 2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
+                           SCREEN_HEIGHT / 2 + 160, SCREEN_HEIGHT / 2 - 140]
+            setSpawn = random.randint(0, 7)
+            player1.rect.x = spawnPointX[setSpawn]
+            player1.rect.y = spawnPointY[setSpawn]
+
+        player2bullet.time += 1
 
         if key[pygame.K_w]:
             if Wall.can_move_to(tmxdata, player1.rect, 0, -1, SCOREBOARD_HEIGHT):
@@ -244,27 +305,6 @@ while run:
         if key[pygame.K_SPACE]:
             player1.image = pygame.transform.rotate(player1.image, 2)
             player2.image = pygame.transform.rotate(player2.image, 2)
-
-        # Used until player hit boxes and bullet implementation is achieved
-        if key[pygame.K_7]:
-            spawnPointX = [50, 50, 50, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100,
-                           SCREEN_WIDTH / 2 - 15, SCREEN_WIDTH / 2 - 15]
-            spawnPointY = [SCREEN_HEIGHT / 2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
-                           SCREEN_HEIGHT / 2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
-                           SCREEN_HEIGHT / 2 + 160, SCREEN_HEIGHT / 2 - 140]
-            setSpawn = random.randint(0, 7)
-            player1.rect.x = spawnPointX[setSpawn]
-            player1.rect.y = spawnPointY[setSpawn]
-
-        if key[pygame.K_8]:
-            spawnPointX = [50, 50, 50, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100, SCREEN_WIDTH - 100,
-                           SCREEN_WIDTH / 2 - 15, SCREEN_WIDTH / 2 - 15]
-            spawnPointY = [SCREEN_HEIGHT / 2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
-                           SCREEN_HEIGHT / 2 + 10, SCREEN_HEIGHT - SCOREBOARD_HEIGHT, SCOREBOARD_HEIGHT + 25,
-                           SCREEN_HEIGHT / 2 + 160, SCREEN_HEIGHT / 2 - 140]
-            setSpawn = random.randint(0, 7)
-            player2.rect.x = spawnPointX[setSpawn]
-            player2.rect.y = spawnPointY[setSpawn]
 
         # Used until other game over logic is implemented (Press 5 to end game)
         if key[pygame.K_5]:
