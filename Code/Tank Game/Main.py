@@ -15,6 +15,8 @@ SCOREBOARD_HEIGHT = 66
 redScore = 0
 blueScore = 0
 fireIndex = 0
+trajectoryVar = 0
+
 # Sets screen dimensions
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Tank Game")
@@ -64,7 +66,7 @@ player1 = Player(BlueTankImages, 50, SCREEN_HEIGHT / 2 - SCOREBOARD_HEIGHT + 10)
 player2 = Player(RedTankImages, SCREEN_WIDTH - 100, SCREEN_HEIGHT / 2 - SCOREBOARD_HEIGHT + 10)
 
 fireSprite = Player(FireImages, -300, (SCREEN_HEIGHT / 20 - (SCOREBOARD_HEIGHT + 28)))
-player1bullet = bullet.Bullet(player1.rect.x + 40, player1.rect.y + 20, (0, 255, 0))
+player1bullet = bullet.Bullet(player1.rect.x + 40, player1.rect.y + 2000, (0, 0, 0))
 
 run = True
 menu = True
@@ -138,41 +140,74 @@ while run:
             fireSprite.rect.x = -2500
         # Below controls key bindings
         key = pygame.key.get_pressed()
-
-        if key[pygame.K_v]:
+# trajectoryVar looks useless but the dang thing won't work without it.
+        if key[pygame.K_v] and player1bullet.cooldown:
             if player1.index == 0:
-                player1bullet = bullet.Bullet(player1.rect.x + 40, player1.rect.y + 20, (0, 255, 0))
+                player1bullet.direction = 0
+                trajectoryVar = player1bullet.direction
+                player1bullet = bullet.Bullet(player1.rect.x + 40, player1.rect.y + 20, (0, 0, 255))
             elif player1.index == 1:
-                player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 0, (0, 255, 0))
-                player1bullet.shootUp(screen)
+                player1bullet.direction = 1
+                trajectoryVar = player1bullet.direction
+                player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 0, (0, 0, 255))
+                #player1bullet.shootUp(screen)
             elif player1.index == 2:
-                player1bullet = bullet.Bullet(player1.rect.x + 0, player1.rect.y + 20, (0, 255, 0))
-                player1bullet.shootLeft(screen)
+                player1bullet.direction = 2
+                trajectoryVar = player1bullet.direction
+                player1bullet = bullet.Bullet(player1.rect.x + 0, player1.rect.y + 20, (0, 0, 255))
+                #player1bullet.shootLeft(screen)
             elif player1.index == 3:
-                player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 40, (0, 255, 0))
-                player1bullet.shootDown(screen)
+                player1bullet.direction = 3
+                trajectoryVar = player1bullet.direction
+                player1bullet = bullet.Bullet(player1.rect.x + 20, player1.rect.y + 40, (0, 0, 255))
+                #player1bullet.shootDown(screen)
 
-        if player1bullet.time < 500:
-            player1bullet.x_pos += 2
-            pygame.draw.circle(screen, player1bullet.color, (player1bullet.x_pos, player1bullet.y_pos), player1bullet.radius)
-        elif player1bullet.time >= 500:
-            player1bullet.x_pos = -100
+# Below controls player1's bullet direction and cooldown
+        if player1bullet.time < 300:
 
+            player1bullet.direction = trajectoryVar
+
+            if player1bullet.direction == 0:
+                player1bullet.x_pos += 3
+                player1bullet.cooldown = False
+                pygame.draw.circle(screen, player1bullet.color, (player1bullet.x_pos, player1bullet.y_pos), player1bullet.radius)
+            elif player1bullet.direction == 1:
+                player1bullet.y_pos -= 3
+                player1bullet.cooldown = False
+                pygame.draw.circle(screen, player1bullet.color, (player1bullet.x_pos, player1bullet.y_pos), player1bullet.radius)
+            elif player1bullet.direction == 2:
+                player1bullet.x_pos -= 3
+                player1bullet.cooldown = False
+                pygame.draw.circle(screen, player1bullet.color, (player1bullet.x_pos, player1bullet.y_pos), player1bullet.radius)
+            elif player1bullet.direction == 3:
+                player1bullet.y_pos += 3
+                player1bullet.cooldown = False
+                pygame.draw.circle(screen, player1bullet.color, (player1bullet.x_pos, player1bullet.y_pos), player1bullet.radius)
+
+        if player1bullet.time >= 300:
+            #player1bullet.x_pos = -1000
+            player1bullet.cooldown = True
+
+        if player1bullet.x_pos >= player2.rect.x - 20 and player1bullet.x_pos <= player2.rect.x + 20 and player1bullet.y_pos >= player2.rect.y - 20 and player1bullet.y_pos <= player2.rect.y + 20:
+            #key = [pygame.K_7]
+            redScore += 1
+            print("HIT")
+        print(str(player1bullet.x_pos) + " " + str(player2.rect.x))
         player1bullet.time += 1
 
         if key[pygame.K_m]:
             if player2.index == 0:
                 player2bullet = bullet.Bullet(player2.rect.x + 0, player2.rect.y + 20, (0, 255, 0))
-                player2bullet.shootLeft(screen)
+                #player2bullet.shootLeft(screen)
             elif player2.index == 1:
                 player2bullet = bullet.Bullet(player2.rect.x + 20, player2.rect.y + 0, (0, 255, 0))
-                player2bullet.shootUp(screen)
+                #player2bullet.shootUp(screen)
             elif player2.index == 2:
                 player2bullet = bullet.Bullet(player2.rect.x + 40, player2.rect.y + 20, (0, 255, 0))
-                player2bullet.shootRight(screen)
+                #player2bullet.shootRight(screen)
             elif player2.index == 3:
                 player2bullet = bullet.Bullet(player2.rect.x + 20, player2.rect.y + 40, (0, 255, 0))
-                player2bullet.shootDown(screen)
+                #player2bullet.shootDown(screen)
 
         if key[pygame.K_w]:
             if Wall.can_move_to(tmxdata, player1.rect, 0, -1, SCOREBOARD_HEIGHT):
