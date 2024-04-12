@@ -190,7 +190,10 @@ while run:
 
         if player1bullet.x_pos >= player2.rect.x - 20 and player1bullet.x_pos <= player2.rect.x + 20 and player1bullet.y_pos >= player2.rect.y - 20 and player1bullet.y_pos <= player2.rect.y + 20:
             #key = [pygame.K_7]
-            redScore += 1
+            blueScore += 1
+            blueText = font.render(str(blueScore), True, (63, 196, 255))
+            blueTextRect = blueText.get_rect()
+            blueTextRect.center = (SCREEN_WIDTH / 3, SCREEN_HEIGHT / 20)
             print("HIT")
         print(str(player1bullet.x_pos) + " " + str(player2.rect.x))
         player1bullet.time += 1
