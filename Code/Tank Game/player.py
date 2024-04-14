@@ -2,6 +2,7 @@ import pygame
 
 SCOREBOARD_HEIGHT = 66
 
+
 class Player(pygame.sprite.Sprite):
     def __init__(self, images, x, y):
         super().__init__()

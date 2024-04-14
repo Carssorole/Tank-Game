@@ -185,9 +185,9 @@ while run:
 
         if player1bullet.time >= 300:
             player1bullet.cooldown = True
-        # Controls player2's hitbox dimensions and hit registry
-        if player2.rect.x - 20 <= player1bullet.x_pos <= player2.rect.x + 20 \
-                and player2.rect.y - 20 <= player1bullet.y_pos <= player2.rect.y + 20:
+        # Controls player2's hit box dimensions and hit registry
+        if player2.rect.x <= player1bullet.x_pos <= player2.rect.x + 40 \
+                and player2.rect.y <= player1bullet.y_pos <= player2.rect.y + 40:
 
             blueScore += 1
             blueText = font.render(str(blueScore), True, (63, 196, 255))
@@ -252,9 +252,9 @@ while run:
 
         if player2bullet.time >= 300:
             player2bullet.cooldown = True
-        # Controls player1's hitbox dimensions and hit registry
-        if player1.rect.x - 20 <= player2bullet.x_pos <= player1.rect.x + 20 \
-                and player1.rect.y - 20 <= player2bullet.y_pos <= player1.rect.y + 20:
+        # Controls player1's hit box dimensions and hit registry
+        if player1.rect.x <= player2bullet.x_pos <= player1.rect.x + 40 \
+                and player1.rect.y <= player2bullet.y_pos <= player1.rect.y + 40:
 
             redScore += 1
             redText = font.render(str(redScore), True, (255, 0, 0))
@@ -301,11 +301,6 @@ while run:
                 player1.moveLeft(1)
             player1.update(0)
             player1.image = pygame.transform.scale(player1.image, (40, 40))
-
-        if key[pygame.K_SPACE]:
-            player1.image = pygame.transform.rotate(player1.image, 2)
-            player2.image = pygame.transform.rotate(player2.image, 2)
-
         # Used until other game over logic is implemented (Press 5 to end game)
         if key[pygame.K_5]:
             game_over = True
