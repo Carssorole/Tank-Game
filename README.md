@@ -12,17 +12,18 @@ This game will be programmed in Python using the common pygame import.
 ## How to Play
 
 **Controls for Player 1 (Blue Tank):**
-- W: Move Forward
-- S: Move Backward
-- A: Rotate Left
-- D: Rotate Right
-- SPACE: Self Immolate
+- W: Move Up Screen
+- S: Move Down Screen
+- A: Move Left
+- D: Move Right
+- V: Fire Cannon
 
 **Controls for Player 2 (Red Tank):**
-- UP Arrow: Move Forward
-- DOWN Arrow: Move Backward
-- LEFT Arrow: Rotate Left
-- RIGHT Arrow: Rotate Right
+- UP Arrow: Move Up Screen
+- DOWN Arrow: Move Down Screen
+- LEFT Arrow: Move Left
+- RIGHT Arrow: Move Right
+- M: Fire Cannon
 
 ## Objective
 
